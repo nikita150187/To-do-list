@@ -15,8 +15,8 @@ function TodoList  () {
   }
 
   function deleteTask(index){
-    const updatedTasks = tasks.filter((_,i) => i !== index);
-    setNewtask("");
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
   }
 
   function moveTaskUp(index){
@@ -29,9 +29,9 @@ function TodoList  () {
     }
   }
 
-
+  
   function moveTaskDown(index){
-    if (index > 0){
+    if (index < tasks.length - 1){
       const updatedTasks = [...tasks];
       [updatedTasks[index], updatedTasks[index - 1]] =
       [updatedTasks[index - 1], updatedTasks[index]];
@@ -39,6 +39,7 @@ function TodoList  () {
 
     }
   }
+
   return(
   <div className='to-do-list'>
     <h1>To-Do-List</h1>
@@ -53,11 +54,11 @@ function TodoList  () {
       {tasks.map((tasks, index) => 
       <li key={index}>
         <span className='text'>{tasks}</span>
-        <button className='delete-btn'onClick={() => deleteTask(index)}>
-          
-          
-
+        <button className='delete-btn'onClick={() => deleteTask(index)}>Delete
         </button>
+        <button className='move-btn' onClick={() => moveTaskUp(index)}>Up</button>
+        <button className='move-btn' onClick={() => moveTaskDown(index)}>Down</button>
+    
 
       </li>
       )}
@@ -67,60 +68,6 @@ function TodoList  () {
 
 
 
-  const addTask = () => {
-    if (inputValue.trim()) {
-      setTasks([...tasks, inputValue]);
-      setInputValue('');
-    }
-  };
-
-  const removeTask = (index) => {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
-  };
-
-  const moveUp = (index) => {
-    if (index > 0) {
-      const updatedTasks = [...tasks];
-      [updatedTasks[index - 1], updatedTasks[index]] = [updatedTasks[index], updatedTasks[index - 1]];
-      setTasks(updatedTasks);
-    }
-  };
-
-  const moveDown = (index) => {
-    if (index < tasks.length - 1) {
-      const updatedTasks = [...tasks];
-      [updatedTasks[index + 1], updatedTasks[index]] = [updatedTasks[index], updatedTasks[index + 1]];
-      setTasks(updatedTasks);
-    }
-  };
-
-  return (
-    <div className="todo-list">
-      <h1>To-Do List</h1>
-      <div className="input-container">
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Enter a task"
-        />
-        <button onClick={addTask}>Add Task</button>
-      </div>
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index} className="task-item">
-            <span>{task}</span>
-            <div className="task-buttons">
-              <button onClick={() => moveUp(index)}>⬆️</button>
-              <button onClick={() => moveDown(index)}>⬇️</button>
-              <button onClick={() => removeTask(index)}>❌</button>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+ };
 
 export default TodoList;
