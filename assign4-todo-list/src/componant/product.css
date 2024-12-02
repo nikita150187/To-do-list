@@ -1,0 +1,64 @@
+.product{
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px hsla(78, 81%, 54%, 0.877);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    max-width: 250px;
+    display: inline-block;
+    background-color: black;
+    cursor: pointer;
+    
+    
+  }
+  .img{
+    max-width: 80%;
+    height: 50%;
+    border-radius: 5px;
+    border: 5px solid gold;
+    object-fit: cover;
+  }
+  .product-title{
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: 20px;
+    color: antiquewhite;
+
+  }
+  .product-info{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20p4;
+    color: aliceblue;
+
+  }
+  .product-price{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20p4;
+    color:yellow;
+
+  }
+  .product:hover {
+    transform: translateY(-10px);
+   
+    background-color:rgb(61, 49, 235);
+  }
+
+.home-btn{
+  background-color: rgb(199, 13, 174);
+}
+.home-btn:hover{
+  color: yellow;
+}
+.list li{
+  font-size: 20px;
+ 
+}
+.list ul li:hover{
+  color: red;
+}
