@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+
 function TodoList  () {
   const [tasks, setTasks] = useState(["Wakeup early ", "Take a shower", "Eat Breakfast", "Go to the Office", "Call your Friend", "Go to the Gym"]);
   const [newTask, setNewtask] = useState('');
@@ -29,11 +31,11 @@ function TodoList  () {
     }
   }
 
-  
+
   function moveTaskDown(index){
     if (index < tasks.length - 1){
       const updatedTasks = [...tasks];
-      [updatedTasks[index], updatedTasks[index - 1]] =
+      [updatedTasks[index], updatedTasks[index + 1]] =
       [updatedTasks[index - 1], updatedTasks[index]];
       setTasks(updatedTasks);
 
@@ -42,7 +44,7 @@ function TodoList  () {
 
   return(
   <div className='to-do-list'>
-    <h1>To-Do-List</h1>
+    <h1 className='title'>To-Do-List</h1>
      <div>
       <input type="text" placeholder='Enter a task...'
       value={newTask}
@@ -52,15 +54,12 @@ function TodoList  () {
 
      <ol>
       {tasks.map((tasks, index) => 
-      <li key={index}>
+      <li className='li-item'  key={index}>
         <span className='text'>{tasks}</span>
-        <button className='delete-btn'onClick={() => deleteTask(index)}>Delete
-        </button>
+        <button className='delete-btn'onClick={() => deleteTask(index)}>Delete</button>
         <button className='move-btn' onClick={() => moveTaskUp(index)}>Up</button>
         <button className='move-btn' onClick={() => moveTaskDown(index)}>Down</button>
-    
-
-      </li>
+    </li>
       )}
      </ol>
 

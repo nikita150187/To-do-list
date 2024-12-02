@@ -56,7 +56,8 @@
   color: yellow;
 }
 .list li{
-  font-size: 20px;
+  font-size: 25px;
+  margin-top: 20px;
  
 }
 .list ul li:hover{
